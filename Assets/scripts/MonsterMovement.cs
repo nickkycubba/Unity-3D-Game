@@ -17,13 +17,24 @@ public class MonsterMovement : MonoBehaviour
     }
 
 
-    void Update()
+    void FixedUpdate()
     {
+        RaycastHit hit;
+        
+        player = GameObject.Find("FPSController").transform;
+
         // If the enemy and the player have health left...
         //if (enemyHealth.currentHealth > 0 && playerHealth.currentHealth > 0)
-       // {
-            // Send the monster to the player
+        // {
+        // Send the monster to the player
+
+        
+        
+        if (!Physics.Raycast(transform.position, player.position, out hit)) //if no obstacle between monster and player
+        {
             nav.SetDestination(player.position);
+        }
+        
        // }
         // Otherwise...
       //  else

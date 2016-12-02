@@ -3,14 +3,15 @@
 using UnityEngine;
 using System.Collections;
 
-public unsafe class mazeBlock : MonoBehaviour {
+public class mazeBlock : MonoBehaviour {
 
-    public unsafe struct blockUnit
+    public struct blockUnit
     {
-        public blockUnit* left;
-        public blockUnit* right;
-        public blockUnit* forward;
-        public blockUnit* backward;
+        //4 directions, if true then connection exists in the direction, and if false then wall stands there
+        public bool ifLeft;
+        public bool ifRight;
+        public bool ifForward;
+        public bool ifBackward;
 
         public bool ifMonster;
         public bool ifCoin;
