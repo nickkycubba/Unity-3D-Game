@@ -6,6 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/starMenu.unity
+    path: Assets/scenes/starMenu.unity
   - enabled: 1
-    path: Assets/demoLevel.unity
+    path: Assets/scenes/how2play.unity
+  - enabled: 1
+    path: Assets/scenes/demoLevel.unity
