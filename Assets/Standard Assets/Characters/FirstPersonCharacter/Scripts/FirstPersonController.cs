@@ -42,6 +42,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool m_Jumping;
         private AudioSource m_AudioSource;
 
+        GameObject MonsterVision;                          // Reference to the Monsters scope of Vision
+        public Animator MonsterAnim;                              // Reference to the Monster animator component.
+
         // Use this for initialization
         private void Start()
         {
@@ -254,6 +257,17 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 return;
             }
             body.AddForceAtPosition(m_CharacterController.velocity*0.1f, hit.point, ForceMode.Impulse);
+        }
+   
+        void OnTriggerEnter(Collider other)
+        {
+            MonsterVision = GameObject.FindGameObjectWithTag("InMonstersVision");
+            // If the entering collider is the player...
+            if (other.gameObject == MonsterVision)
+            {
+                // ... the player is in range.
+                MonsterAnim.SetBool("PlayerSpotted", true);
+            }
         }
     }
 }
