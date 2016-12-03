@@ -424,7 +424,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -15}
+  m_AnchoredPosition: {x: 0, y: -73.1}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1624854486
@@ -574,6 +574,13 @@ MonoBehaviour:
 
     But watch out! There are eneimies lurking about to make sure you never leave the
     planet alive!
+
+
+    -move character with WASD/arrow keys
+
+    -shoot with mouse left click
+
+    -pick up items with mouse right click
 
 '
 --- !u!222 &1729005192
