@@ -1201,6 +1201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 10
+  item_count: 0
 --- !u!92 &770134235
 Behaviour:
   m_ObjectHideFlags: 0
@@ -1266,7 +1267,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000011393698724, guid: 5c07f1fc138912c478d55d70bd7d1b3d, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 14.23
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 4000011393698724, guid: 5c07f1fc138912c478d55d70bd7d1b3d, type: 2}
       propertyPath: m_LocalRotation.x

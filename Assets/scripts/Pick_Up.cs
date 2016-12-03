@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Pick_Up : MonoBehaviour {
 
     public int distance;
+    public int item_count = 0;
     
 
 	// Use this for initialization
@@ -30,7 +32,13 @@ public class Pick_Up : MonoBehaviour {
                 {
                     Debug.Log("item hit");
                     Destroy(hit.collider.gameObject);
+                    item_count++;
                 }
+            }
+
+            if(item_count == 1)
+            {
+                SceneManager.LoadSceneAsync("gameWon");
             }
         }
     }
