@@ -103,7 +103,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 189614778}
-  - 114: {fileID: 189614779}
   - 82: {fileID: 189614780}
   m_Layer: 8
   m_Name: SpawnPoint
@@ -125,22 +124,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1030863464}
   m_RootOrder: 27
---- !u!114 &189614779
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 189614777}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3a4583aeaa6b1349973be3ac14e00a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectile: {fileID: 54000010779075750, guid: 1c80a06af5c894f439bd557c207604d0,
-    type: 2}
-  speed: 50
-  impact: {fileID: 8300000, guid: 44687c4079ce1b84c82c3c5e6ebb046d, type: 3}
-  anim: {fileID: 0}
 --- !u!82 &189614780
 AudioSource:
   m_ObjectHideFlags: 0
@@ -417,6 +400,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 898411728}
   m_RootOrder: 2
+--- !u!1 &321117807 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000010371035106, guid: 5c07f1fc138912c478d55d70bd7d1b3d,
+    type: 2}
+  m_PrefabInternal: {fileID: 795549498}
+--- !u!114 &321117815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 321117807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb24e0133b433ff4c98815b0eae570f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 5
 --- !u!1001 &330171424
 Prefab:
   m_ObjectHideFlags: 0
@@ -1719,6 +1719,76 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c92c6865d5abbb6499660d10e6a82ead, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1030863468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1030863463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b99712d78e05344b8323eed4a36f6fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponRange: 50
+--- !u!120 &1030863469
+LineRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1030863463}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_Materials:
+  - {fileID: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedWireframeHidden: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 1}
+  m_Parameters:
+    startWidth: 0.05
+    endWidth: 0.05
+    m_StartColor:
+      serializedVersion: 2
+      rgba: 4294967295
+    m_EndColor:
+      serializedVersion: 2
+      rgba: 4294967295
+  m_UseWorldSpace: 1
+--- !u!114 &1030863470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1030863463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff296066e518b2941b8851cb35d5de93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gunDamage: 1
+  firerate: 0.25
+  weaponRange: 50
+  hitForce: 100
+  gunEnd: {fileID: 189614778}
 --- !u!1001 &1070688153
 Prefab:
   m_ObjectHideFlags: 0
