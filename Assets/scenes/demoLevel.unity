@@ -745,7 +745,7 @@ MonoBehaviour:
   gunEnd: {fileID: 225414337}
   clip: 15
   totalAmmo: 30
-  ammo: {fileID: 0}
+  ammo: {fileID: 1673376062}
 --- !u!82 &443082586
 AudioSource:
   m_ObjectHideFlags: 0

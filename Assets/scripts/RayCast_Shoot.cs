@@ -28,51 +28,108 @@ public class RayCast_Shoot : MonoBehaviour {
         fpsCam = GetComponentInParent<Camera>();
 
 	}
-	
-	
-	void Update ()
+
+
+    void Update()
     {
         AmmoUI();
-
-        //&& Time.time > nextFire
-        if (Input.GetButtonDown("Fire1"))
+        fire();
+        reload();
+        /*if (totalAmmo > 0)
         {
-            clip--;
-           // nextFire = Time.time + firerate;
-
-            StartCoroutine(shotEffect());
-
-            Vector3 rayOrigin = fpsCam.ViewportToWorldPoint(new Vector3(.5f, .5f, 0));
-            RaycastHit hit;
-
-            laserLine.SetPosition(0, gunEnd.position);
-
-            if (Physics.Raycast(rayOrigin, fpsCam.transform.forward, out hit, weaponRange)) ;
+            //&& Time.time > nextFire
+            if (Input.GetButtonDown("Fire1"))
             {
-                laserLine.SetPosition(1, hit.point);
+                clip--;
+                // nextFire = Time.time + firerate;
 
-                monsterHealth health = hit.collider.GetComponent<monsterHealth>();
+                StartCoroutine(shotEffect());
 
-                if(health != null)
+                Vector3 rayOrigin = fpsCam.ViewportToWorldPoint(new Vector3(.5f, .5f, 0));
+                RaycastHit hit;
+
+                laserLine.SetPosition(0, gunEnd.position);
+
+                if (Physics.Raycast(rayOrigin, fpsCam.transform.forward, out hit, weaponRange)) ;
                 {
-                    health.Damage(gunDamage);
+                    laserLine.SetPosition(1, hit.point);
+
+                    monsterHealth health = hit.collider.GetComponent<monsterHealth>();
+
+                    if (health != null)
+                    {
+                        health.Damage(gunDamage);
+                    }
+                    /*if(hit.rigidbody != null)
+                    {
+                        hit.rigidbody.AddForce(-hit.normal * hitForce);
+                    }
                 }
-                /*if(hit.rigidbody != null)
+                /*else
                 {
-                    hit.rigidbody.AddForce(-hit.normal * hitForce);
+                    laserLine.SetPosition(1, rayOrigin + (fpsCam.transform.forward * weaponRange));
+                }
+
+
+            }
+        }*/
+    }
+
+    void fire()
+    {
+        if (clip > 0)
+        {
+            //&& Time.time > nextFire
+            if (Input.GetButtonDown("Fire1"))
+            {
+                clip--;
+                // nextFire = Time.time + firerate;
+
+                StartCoroutine(shotEffect());
+
+                Vector3 rayOrigin = fpsCam.ViewportToWorldPoint(new Vector3(.5f, .5f, 0));
+                RaycastHit hit;
+
+                laserLine.SetPosition(0, gunEnd.position);
+
+                if (Physics.Raycast(rayOrigin, fpsCam.transform.forward, out hit, weaponRange)) ;
+                {
+                    laserLine.SetPosition(1, hit.point);
+
+                    monsterHealth health = hit.collider.GetComponent<monsterHealth>();
+
+                    if (health != null)
+                    {
+                        health.Damage(gunDamage);
+                    }
+                    /*if(hit.rigidbody != null)
+                    {
+                        hit.rigidbody.AddForce(-hit.normal * hitForce);
+                    }*/
+                }
+                /*else
+                {
+                    laserLine.SetPosition(1, rayOrigin + (fpsCam.transform.forward * weaponRange));
                 }*/
-            }
-            /*else
-            {
-                laserLine.SetPosition(1, rayOrigin + (fpsCam.transform.forward * weaponRange));
-            }*/
-            if(clip == 0)
-            {
+
 
             }
-
         }
-	}
+    }
+
+    void reload()
+    {
+        if(clip == 0)
+        {
+            if(Input.GetKeyDown("e"))
+            {
+                clip += 15;
+                totalAmmo -= clip;
+                    
+            }
+        }
+
+    }
 
     private IEnumerator shotEffect()
     
