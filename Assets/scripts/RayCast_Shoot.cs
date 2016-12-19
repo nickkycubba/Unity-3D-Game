@@ -1,18 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class RayCast_Shoot : MonoBehaviour {
 
     public int gunDamage = 1;
-    public float firerate = .25f;
+    //public float firerate = .25f;
     public float weaponRange = 50f;
     public float hitForce = 100f;
     public Transform gunEnd;
+    public int clip = 15;
+    public int totalAmmo = 30;
+    public Text ammo;
 
+   
     private Camera fpsCam;
     private WaitForSeconds shotDuration = new WaitForSeconds(.07f);
     private LineRenderer laserLine;
-    private float nextFire;
+    //private float nextFire;
     private AudioSource gunShot;
     
     	
@@ -27,9 +32,13 @@ public class RayCast_Shoot : MonoBehaviour {
 	
 	void Update ()
     {
-	    if(Input.GetButtonDown("Fire1") && Time.time > nextFire)
+        AmmoUI();
+
+        //&& Time.time > nextFire
+        if (Input.GetButtonDown("Fire1"))
         {
-            nextFire = Time.time + firerate;
+            clip--;
+           // nextFire = Time.time + firerate;
 
             StartCoroutine(shotEffect());
 
@@ -57,7 +66,10 @@ public class RayCast_Shoot : MonoBehaviour {
             {
                 laserLine.SetPosition(1, rayOrigin + (fpsCam.transform.forward * weaponRange));
             }*/
- 
+            if(clip == 0)
+            {
+
+            }
 
         }
 	}
@@ -71,4 +83,11 @@ public class RayCast_Shoot : MonoBehaviour {
         yield return shotDuration;
         laserLine.enabled = false;
     }
+
+    void AmmoUI()
+    {
+        ammo.text = "Ammo: " + clip + "/" + totalAmmo.ToString();
+    }
+
+   
 }
