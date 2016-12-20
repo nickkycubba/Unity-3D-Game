@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class RayCast_Shoot : MonoBehaviour {
 
+    
     public int gunDamage = 1;
     //public float firerate = .25f;
     public float weaponRange = 50f;
@@ -12,8 +13,9 @@ public class RayCast_Shoot : MonoBehaviour {
     public int clip = 15;
     public int totalAmmo = 30;
     public Text ammo;
+    public AudioClip relaod;
 
-   
+
     private Camera fpsCam;
     private WaitForSeconds shotDuration = new WaitForSeconds(.07f);
     private LineRenderer laserLine;
@@ -34,7 +36,7 @@ public class RayCast_Shoot : MonoBehaviour {
     {
         AmmoUI();
         fire();
-        reload();
+        reloadGun();
         /*if (totalAmmo > 0)
         {
             //&& Time.time > nextFire
@@ -117,17 +119,18 @@ public class RayCast_Shoot : MonoBehaviour {
         }
     }
 
-    void reload()
+    void reloadGun()
     {
-        if(clip == 0)
+       if(Input.GetKeyDown(KeyCode.Space))
         {
-            if(Input.GetKeyDown("e"))
+           if(totalAmmo > 0 && clip == 0)
             {
-                clip += 15;
+                clip = 15;
                 totalAmmo -= clip;
-                    
+                AudioSource.PlayClipAtPoint(relaod, transform.position, 1);
             }
         }
+
 
     }
 
