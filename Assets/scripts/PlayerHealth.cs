@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -84,6 +85,9 @@ public class PlayerHealth : MonoBehaviour
         playerAudio.Play();
 
         // Turn off the movement and shooting scripts.
+
+        //return to main menu
+        SceneManager.LoadSceneAsync("starMenu");
 
     }
 }
