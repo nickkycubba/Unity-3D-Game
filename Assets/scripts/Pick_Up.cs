@@ -40,7 +40,7 @@ public class Pick_Up : MonoBehaviour {
                 {
                     Debug.Log("Ammo hit");
                     Destroy(hit.collider.gameObject);
-                    getTotalAmmo.GetComponent<RayCast_Shoot>().totalAmmo = 20;
+                    getTotalAmmo.GetComponent<RayCast_Shoot>().totalAmmo = 30;
                 }
             }
 
